@@ -1,7 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * Just class to keep 2 dices and roll at once
+ * Just class to keep 2 game and roll at once
+ * Not grammar to show more than1
  * Author: Damian Barczyk
  * Date: 20/01/2019
  * Time: 16:15

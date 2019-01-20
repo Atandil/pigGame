@@ -17,7 +17,7 @@
         <header class="navbar navbar-expand-md navbar-light bg-info  mb-4">
             <h1 class="navbar-brand" >Pig Game</h1>
             <div >
-               The 2 person Dice Game
+               The 2 person Dice Game <a href="{{ path('game_new_game') }}" class="btn btn-danger">Reset Game</a>
             </div>
         </header>
 
@@ -30,7 +30,7 @@
                      <h2 style="font-size: 2em">How to Play Pig Dice Game</h2>
                      <h3 style="font-size: 1.5em">Objective</h3>
                      <p>
-                         The objective of Pig Dice Game is to score 100 points before the opponent(s) do(es). The Pig game is played with two six-sided dies.
+                         The objective of Pig Dice Game is to score 100 points before the opponent(s) do(es). The Pig game is played with two six-sided dice.
                      </p>
                      <h3 style="font-size: 1.5em">Gameplay</h3>
                      <p>
@@ -56,11 +56,10 @@
 
              {% endblock %}
             </nav>
-            <main class="col-sm-8 offset-sm-3 col-md-9 offset-md-2">
-                <h2>Game Area</h2>
+            <main class="col-sm-7 col-md-8 bg-light">
                 {% block main %}
 
-
+                    <a href="{{ path('game_new_game') }}" class="btn btn-primary">Create New Game</a>
                 {% endblock %}
             </main>
         </div>

@@ -77,7 +77,7 @@ class Turn
     {
         //return if ended
         if($this->isOver) {return;}
-        //roll dice
+        //roll game
         $this->dices->roll();
 
         $results=$this->dices->values();

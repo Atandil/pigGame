@@ -1,0 +1,13 @@
+{% if game.players|length > 0 %}
+    <ul class="list-group">
+        {% for player in game.players %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ player.name }}
+                <span class="badge badge-primary badge-pill">{{ player.score }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<br>
+
+<button class="btn btn-primary" id="add">Add Player</button>

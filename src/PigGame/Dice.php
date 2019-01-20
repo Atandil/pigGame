@@ -33,7 +33,7 @@ class Dice implements DiceInterface
 
 
     /**
-     * Roll a dice get 1-6 int
+     * Roll a game get 1-6 int
      * @return void
      */
     public function roll(): void
@@ -56,7 +56,7 @@ class Dice implements DiceInterface
     {
         /*if($val<1 || $val > 6)
         {
-            throw new \Exception("Out of dice range");
+            throw new \Exception("Out of game range");
         }*/
         $this->fixed=$val;
     }

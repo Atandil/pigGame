@@ -1,0 +1,48 @@
+{# Comments #}
+{% extends 'index.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function() {
+
+            $('#add').on('click', function () {
+                let url ='{{ path('game_add_player') }}';
+                $('.modal-container').load(url, function (result) {
+                    $('#myModal').modal({show: true});
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{%  block main %}
+    <h2>Game Area</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 col-md-8">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                    {% if game.isStarted()  %}
+                        {{ include('game/turn.html.twig') }}
+                    {% else %}
+                        {{ include('game/noturn.html.twig') }}
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 hidden-xs-down bg-light" id="players">
+                {{ include('game/players.html.twig') }}
+            </div>
+        </div>
+
+    <div class="modal-container"></div>
+
+{% endblock %}

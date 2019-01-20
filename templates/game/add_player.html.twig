@@ -1,0 +1,31 @@
+{# just modal #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add player</h4>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form,{action:path('game_add_player')}) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submit">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        //add/edit modal
+        $("button#submit").click(function () {
+
+            $('form').submit();
+            $('#myModal').modal('hide');
+        });
+    });
+    </script>
