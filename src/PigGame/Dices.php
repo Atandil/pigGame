@@ -32,9 +32,7 @@ class Dices
     public function fakeRoll(int $val1, int $val2)
     {
         $this->dice1->setFixed($val1);
-        $this->dice1->roll();
         $this->dice2->setFixed($val2);
-        $this->dice2->roll();
 
     }
 

@@ -16,6 +16,7 @@ class Turn
     private $score = 0;
     private $isOver = false;
     private $player;
+    public $dices;
 
     /**
      * @return bool
@@ -54,11 +55,14 @@ class Turn
     {
         $this->player=$player;
         $this->score =0;
+        $this->dices = new Dices();
 
     }
 
     public function end() :void
     {
+    //return if is already ended
+    if($this->isOver) {return;}
     $this->player->setScore($this->player->getScore() + $this->score);
     $this->isOver = true;
     }
@@ -69,18 +73,31 @@ class Turn
         $this->isOver = true;
     }
 
-    public function roll()
+    public function roll() :void
     {
+        //return if ended
+        if($this->isOver) {return;}
         //roll dice
+        $this->dices->roll();
+
+        $results=$this->dices->values();
         //check if its one? - zero score
-          //check if its  11 - zero whole score
-          //end turn
+        if(in_array(1,$results)) {
 
+            //check if its  11 - zero whole score
+            if($results==[1,1])
+            {
+                $this->snakeEnd();
+            } else {
+                $this->score=0;
+                $this->end();
+            }
+        }
+        //save score
+        else {
+            $this->score+=array_sum($results);
 
-        //dummy return
-        $out=[2,3];
-
-        return $out;
+        }
     }
 
 
