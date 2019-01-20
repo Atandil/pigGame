@@ -1,0 +1,69 @@
+{# Comments #}
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+    {% block navbar %}
+        <header class="navbar navbar-expand-md navbar-light bg-info  mb-4">
+            <h1 class="navbar-brand" >Pig Game</h1>
+            <div >
+               The 2 person Dice Game
+            </div>
+        </header>
+
+    {% endblock %}
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <nav class="col-sm-4 col-md-4 hidden-xs-down">
+             {% block menu %}
+                 <div id="rules-desc" class="bg-light border" style="font-size: smaller;padding: 10px;margin-right: 10px;">
+                     <h2 style="font-size: 2em">How to Play Pig Dice Game</h2>
+                     <h3 style="font-size: 1.5em">Objective</h3>
+                     <p>
+                         The objective of Pig Dice Game is to score 100 points before the opponent(s) do(es). The Pig game is played with two six-sided dies.
+                     </p>
+                     <h3 style="font-size: 1.5em">Gameplay</h3>
+                     <p>
+                         In each turn a player rolls a die repeatedly until either a 1 is rolled or player decides to hold and pass on the turn to its opponent.
+                     </p>
+                     <p>
+                         The number player rolls is added to a temporary score. If the player rolls a 1, they lose their temporary score and turn is passed to their opponent.
+                     </p>
+                     <p>
+                         If player gets double 1 (snake eyes ) they lose their all score and turn is passed to their opponent.
+                     </p>
+                     <p>
+                         If player gets any other number, they can decide to continue and roll the die.
+                     </p>
+                     <p>
+                         If player decides to hold, then their turn total (temporary score) is added to the overall score.
+                     </p>
+                     <p>
+                         The first player to score 100 points wins the game.
+                     </p>
+                     <p>Read more about this game <a target="_blank" href="https://en.wikipedia.org/wiki/Pig_(dice_game)">here</a></p>
+                 </div>
+
+             {% endblock %}
+            </nav>
+            <main class="col-sm-8 offset-sm-3 col-md-9 offset-md-2">
+                <h2>Game Area</h2>
+                {% block main %}
+
+
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+{% endblock %}
