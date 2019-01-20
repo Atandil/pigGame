@@ -16,6 +16,8 @@
     <testsuites>
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
+            <!-- exclude functional test for now -->
+            <exclude>/tests/Controller</exclude>
         </testsuite>
     </testsuites>
 
