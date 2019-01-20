@@ -18,6 +18,7 @@ class DicesTest extends TestCase
     {
         $dices = new Dices();
         $dices->fakeRoll(1,2);
+        $dices->roll();
         $out=[1,2];
         $this->assertEquals($out,$dices->values());
 
