@@ -89,6 +89,10 @@ class GameTest extends TestCase
         $this->assertEquals($this->player1, $this->game->getPlayer());
     }
 
+    public function testPlayerAfterEndTurn() {
+        $this->game->endTurn();
+        $this->assertEquals($this->player2, $this->game->getPlayer());
+    }
 
     public function testIsOver_initial() {
         $this->assertFalse($this->game->isOver());
@@ -97,20 +101,20 @@ class GameTest extends TestCase
 
     public function testIsOverPlayer1Has100Points() {
         $this->game->getPlayer()->setScore(100);
-        $this->game->stopRolling();
+        $this->game->endTurn();
         $this->assertTrue($this->game->isOver());
       }
 
     public function testIsOverPlayer1HasOver100Points() {
         $this->game->getPlayer()->setScore(120);
-        $this->game->stopRolling();
+        $this->game->endTurn();
         $this->assertTrue($this->game->isOver());
     }
 
 
   public function testGetWinnerPlayer() {
       $this->game->getPlayer()->setScore(120);
-      $this->game->stopRolling();
+      $this->game->endTurn();
       $this->assertEquals($this->player1, $this->game->getWinner());
   }
 

@@ -76,11 +76,6 @@ class Game
     }
 
     public function nextTurn() {
-        if ($this->isOver()) {
-            throw new \Exception("The game is over");
-        }elseif (!$this->isStarted()) {
-            throw new \Exception("The game is not started");
-        }
         $index=$this->nextPlayerIndex();
         $this->turn = new Turn($this->players[$index]);
     }
@@ -116,7 +111,7 @@ class Game
 
     }
 
-    public function stopRolling() {
+    public function endTurn() {
         if ($this->isOver()) {
             throw new \Exception("The game is over");
         }elseif (!$this->isStarted()) {
@@ -126,6 +121,8 @@ class Game
         if ($this->getPlayer()->getScore() >= $this->pointsWin) {
             $this->winner = $this->getPlayer();
             $this->isOver = true;
+        } else {
+            $this->nextTurn();
         }
     }
 
