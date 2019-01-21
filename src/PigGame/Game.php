@@ -111,7 +111,7 @@ class Game
         if (!$this->isStarted()) {
             throw new \Exception("The game is not started");
         } else {
-            $this->turn->dices->values();
+            return $this->turn->dices->values();
         }
 
     }

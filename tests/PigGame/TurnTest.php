@@ -156,5 +156,15 @@ class TurnTest extends TestCase
 
     }
 
+    public function testDiceValueAfterRoll () {
+        $turn = new Turn($this->player);
+        $turn->dices->fakeRoll(5,5);
+        $turn->roll();
+        $out=[5,5];
+        $this->assertEquals($out,$turn->dices->values());
+
+    }
+
+
 
 }

@@ -108,10 +108,17 @@ class GameTest extends TestCase
     }
 
 
-  public function testGetWinnerplayer() {
+  public function testGetWinnerPlayer() {
       $this->game->getPlayer()->setScore(120);
       $this->game->stopRolling();
       $this->assertEquals($this->player1, $this->game->getWinner());
   }
+
+    public function testGetRollValues() {
+        $this->game->getTurn()->dices->fakeRoll(5,5);
+        $this->game->roll();
+        $out=[5,5];
+        $this->assertEquals($out,$this->game->values());
+    }
 
 }
