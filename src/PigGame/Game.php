@@ -50,9 +50,7 @@ class Game
 
     public function getPlayer()  :Player
     {
-        if ($this->isOver()) {
-            throw new \Exception("The game is over");
-        }elseif (!$this->isStarted()) {
+        if (!$this->isStarted()) {
             throw new \Exception("The game is not started");
         }
         return $this->turn->getPlayer();

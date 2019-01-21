@@ -19,7 +19,14 @@
     {% endfor %}
 
     </div>
+
+    {% if game.getTurn().isOver() %}
+    <div class="alert alert-danger" role="alert">
+        Sorry - You loose :(
+    </div>
+    {% else %}
     <a href="{{  path('game_roll') }}" class="btn btn-primary" id="roll">Roll</a>
+    {% endif %}
     <a href="{{  path('game_end_turn') }}" class="btn btn-success" id="end">End Turn</a>
 
 </div>

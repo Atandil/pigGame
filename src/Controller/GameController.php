@@ -105,7 +105,7 @@ class GameController extends AbstractController
             return $this->redirectToRoute('index');
         }
 
-        $game->stopRolling();
+        $game->endTurn();
         $session->set('game',$game);
 
         return $this->redirectToRoute('index');

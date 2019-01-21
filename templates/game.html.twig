@@ -33,13 +33,13 @@
             <div class="col-sm-8 col-md-8">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container" id="game">
-                    {% if game.isStarted()  %}
-                        {{ include('game/turn.html.twig') }}
-                    {% elseif game.isOver()  %}
-                        {{ include('game/winner.html.twig') }}
-                     {% else %}
-                        {{ include('game/noturn.html.twig') }}
-                    {% endif %}
+                        {% if game.isOver()  %}
+                            {{ include('game/winner.html.twig') }}
+                        {% elseif game.isStarted()  %}
+                            {{ include('game/turn.html.twig') }}
+                        {% else %}
+                            {{ include('game/noturn.html.twig') }}
+                        {% endif %}
                     </div>
                 </div>
             </div>
