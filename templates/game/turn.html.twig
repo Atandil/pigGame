@@ -1,1 +1,18 @@
-turn
+<div class="container">
+    <h4>{{ game.getPlayer().name }} Turn</h4>
+    <div class="alert alert-primary" role="alert">
+        Turn score: {{ game.getTurn().getScore() }}
+    </div>
+
+    {{ game.values() }}
+
+    {% for val in game.values() %}
+        {{ val }}
+    {% endfor %}
+
+    <a href="{{  path('game_roll') }}" class="btn btn-primary" id="roll">Roll</a>
+    <a href="{{  path('game_end_turn') }}" class="btn btn-success" id="end">End Turn</a>
+
+</div>
+
+

@@ -107,6 +107,15 @@ class Game
 
     }
 
+    public function values() {
+        if (!$this->isStarted()) {
+            throw new \Exception("The game is not started");
+        } else {
+            $this->turn->dices->values();
+        }
+
+    }
+
     public function stopRolling() {
         if ($this->isOver()) {
             throw new \Exception("The game is over");

@@ -39,6 +39,19 @@ class GameController extends AbstractController
         return $this->redirectToRoute('index');
     }
 
+    public function start()
+    {
+        $session = new Session(new NativeSessionStorage(), new AttributeBag());
+
+        $game=$session->get('game');
+
+        $game->start();
+
+        $session->set('game',$game);
+
+        return $this->redirectToRoute('index');
+    }
+
     public function addPlayer(Request $request)
     {
         $session = new Session(new NativeSessionStorage(), new AttributeBag());
@@ -64,6 +77,38 @@ class GameController extends AbstractController
 
         return $this->render('game/add_player.html.twig',
             ['form' => $form->createView()]);
+    }
+
+    public function roll()
+    {
+        $session = new Session(new NativeSessionStorage(), new AttributeBag());
+
+        $game=$session->get('game');
+
+        if(!$game) {
+            return $this->redirectToRoute('index');
+        }
+
+        $game->roll();
+        $session->set('game',$game);
+
+        return $this->redirectToRoute('index');
+    }
+
+    public function turn()
+    {
+        $session = new Session(new NativeSessionStorage(), new AttributeBag());
+
+        $game=$session->get('game');
+
+        if(!$game) {
+            return $this->redirectToRoute('index');
+        }
+
+        $game->stopRolling();
+        $session->set('game',$game);
+
+        return $this->redirectToRoute('index');
     }
 
 }
